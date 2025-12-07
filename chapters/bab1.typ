@@ -1,6 +1,6 @@
-#align(center)[= BAB 1 Pendahuluan & Pembagian Kerja]
+= Pendahuluan & Pembagian Kerja
 
-== Deskripsi Aplikasi
+== 1. Deskripsi Aplikasi
 Aplikasi *zeKantin* merupakan aplikasi pemesanan makanan dan minuman berbasis mobile yang dikembangkan menggunakan Flutter. Tujuan utama aplikasi ini adalah untuk mempermudah serta mempercepat proses transaksi di kantin kampus, sehingga mahasiswa dan pegawai kantin tidak perlu mengantri panjang pada jam sibuk.
 
 Aplikasi ini menghadirkan beberapa fitur utama:
@@ -15,7 +15,7 @@ Aplikasi ini menghadirkan beberapa fitur utama:
 
 Backend aplikasi menggunakan *Cloud Firestore*, sementara arsitektur internal memisahkan tampilan (UI), logika (logic), dan layanan backend (service) untuk memudahkan pengembangan dan pemeliharaan kode.
 
-== Ruang Lingkup & Tujuan Projek
+== 2. Ruang Lingkup & Tujuan Projek
 Proyek ini merupakan tugas akhir semester yang harus diselesaikan oleh seluruh anggota tim sesuai pembagian kerja. Tujuan dari pembuatan aplikasi ini adalah untuk memenuhi penilaian mata kuliah terkait pengembangan aplikasi mobile.
 
 Ruang lingkup proyek meliputi:
@@ -27,7 +27,7 @@ Ruang lingkup proyek meliputi:
 
 Fitur pembayaran online serta proses publikasi aplikasi ke Play Store tidak termasuk dalam ruang lingkup proyek ini.
 
-== Pembagian Tanggung Jawab Anggota
+==  3. Pembagian Tanggung Jawab Anggota
 
 Berikut adalah pembagian tugas akhir yang telah disepakati oleh tim:
 

@@ -3,7 +3,42 @@
 Dikerjakan oleh UI Engineer dan Auth Controller[cite: 28, 33].
 
 == Halaman Login & Register
-Validasi form diterapkan: Password minimal 6 karakter dan Email wajib domain kampus[cite: 36].
+
+Validasi form diterapkan pada input email dan password untuk meningkatkan keamanan dan memastikan hanya pengguna kampus yang dapat mendaftar atau masuk [cite: 36]. Rincian validasinya sebagai berikut:
+
+- Password:
+  - Aturan: minimal 6 karakter.
+  - Tujuan: mencegah password terlalu pendek yang mudah ditebak dan memberikan ambang minimal untuk pengalaman pengguna.
+
+- Email:
+  - Aturan: harus berbentuk email valid dan memakai domain kampus (mis. `@kampus.ac.id` atau domain kampus yang ditentukan oleh tim).
+  - Tujuan: membatasi akses ke pemilik email institusi sehingga hanya anggota kampus yang bisa mendaftar.
+
+Contoh validator singkat (Dart) yang digunakan di layar login/register:
+
+```dart
+String? validateEmailCampus(String? v) {
+  if (v == null || v.trim().isEmpty) return 'Email tidak boleh kosong';
+  final email = v.trim();
+  final basic = RegExp(r'^[\w\.\-]+@([\w\-]+\.)+[A-Za-z]{2,}\$');
+  if (!basic.hasMatch(email)) return 'Format email tidak valid';
+  final allowed = ['@kampus.ac.id']; // sesuaikan dengan domain kampus
+  final ok = allowed.any((d) => email.toLowerCase().endsWith(d));
+  return ok ? null : 'Gunakan email domain kampus';
+}
+
+String? validatePassword(String? v) {
+  if (v == null || v.isEmpty) return 'Password tidak boleh kosong';
+  return v.trim().length >= 6 ? null : 'Password minimal 6 karakter';
+}
+```
+
+Catatan tambahan:
+
+- Berikan pesan error inline di bawah field agar pengguna dapat segera memperbaiki input.
+- Lakukan trim pada input untuk menghindari spasi tak sengaja.
+- Gunakan perbandingan case-insensitive untuk pengecekan domain.
+- Selalu ulang validasi di sisi server / rules Firestore; validasi sisi-klien hanya untuk pengalaman pengguna.
 
 == Halaman Login
 
